@@ -78,8 +78,9 @@ const showPhoneDetails =(phone) =>{
     showDetailContainer.innerHTML = `
         <div class="flex justify-center items-center my-5"> <img src="${phone.image}" alt="" /> </div>
         <p class="text-xl my-2"><span class="font-bold">Storage: </span> ${phone?.mainFeatures?.storage}</p>
-        <p class="text-xl my-2"><span class="font-bold">Display Size: :</span> ${phone?.mainFeatures?.displaySize}</p>
-        <p class="text-xl my-2"><span class="font-bold">Release Date: :</span> ${phone?.releaseDate}</p>
+        <p class="text-xl my-2"><span class="font-bold">Display Size: :</span> ${phone?.mainFeatures?.displaySize || 'No display size available'}</p>
+        <p class="text-xl my-2"><span class="font-bold">GPS: </span> ${phone?.others?.GPS || 'No GPS Available'}</p>
+        <p class="text-xl my-2"><span class="font-bold">Release Date: :</span> ${phone?.releaseDate || 'No release date available'}</p>
     `
     // show the modal
     show_deatils_modal.showModal();
