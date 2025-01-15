@@ -34,7 +34,7 @@ const displayPhones = (phones, isShowAll) =>{
         // console.log(phone);
         // 2. create a div
         const phoneCard = document.createElement('div');
-        phoneCard.classList = `card bg-slate-300 p-4 shadow-xl`;
+        phoneCard.classList = `card bg-slate-300 p-2 shadow-xl`;
         // 3. set innerHTML
         phoneCard.innerHTML = `
         <figure>
@@ -43,7 +43,7 @@ const displayPhones = (phones, isShowAll) =>{
         </figure>
                 <div class="card-body">
                     <h2 class="card-title">${phone.phone_name}</h2>
-                    <p>${phone.slug}</p>
+                    <p class="my-3">This is the image of this phone. Click show details for get the important information about the phone.</p>
                     <div class="card-actions justify-center">
                         <button onclick="handleShowDetails('${phone.slug}')" class="btn btn-primary">Show Details</button>
                     </div>
@@ -77,7 +77,9 @@ const showPhoneDetails =(phone) =>{
     const showDetailContainer = document.getElementById('show-detail-container');
     showDetailContainer.innerHTML = `
         <div class="flex justify-center items-center my-5"> <img src="${phone.image}" alt="" /> </div>
-        <p><span>Storage:</span> ${phone.mainFeatures.storage}</p>
+        <p class="text-xl my-2"><span class="font-bold">Storage: </span> ${phone?.mainFeatures?.storage}</p>
+        <p class="text-xl my-2"><span class="font-bold">Display Size: :</span> ${phone?.mainFeatures?.displaySize}</p>
+        <p class="text-xl my-2"><span class="font-bold">Release Date: :</span> ${phone?.releaseDate}</p>
     `
     // show the modal
     show_deatils_modal.showModal();
