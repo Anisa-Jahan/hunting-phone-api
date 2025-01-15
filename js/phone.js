@@ -44,8 +44,8 @@ const displayPhones = (phones, isShowAll) =>{
                 <div class="card-body">
                     <h2 class="card-title">${phone.phone_name}</h2>
                     <p>${phone.slug}</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy Now</button>
+                    <div class="card-actions justify-center">
+                        <button onclick="handleShowDetails('${phone.slug}')" class="btn btn-primary">Show Details</button>
                     </div>
                 </div>   
         `;
@@ -54,6 +54,21 @@ const displayPhones = (phones, isShowAll) =>{
     })
     // remove loading spinner
     toggleLoadingSpinner(false);
+}
+
+// handle show details button
+
+const handleShowDetails = async(id)=>{
+    // console.log('it is for testing show details button', id);
+    // load individual data
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+    const data = await res.json();
+    console.log(data);
+}
+
+const showPhoneDetails =() =>{
+    // show the modal
+
 }
 
 // handle seaerch button 

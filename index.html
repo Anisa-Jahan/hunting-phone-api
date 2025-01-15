@@ -23,9 +23,9 @@
         <!-- search reasult -->
         <section>
             <!-- add spinner or loader untill data are load -->
-             <div id="loading-spinner" class="text-center my-40 hidden">
+            <div id="loading-spinner" class="text-center my-40 hidden">
                 <span class="loading loading-dots text-red-500 loading-lg"></span>
-             </div>
+            </div>
             <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- <div class="card bg-gray-100 w-96 shadow-xl">
                     <figure>
@@ -42,10 +42,25 @@
                 </div> -->
             </div>
             <!-- show all element button -->
-             <div id="show-all-container" class="hidden text-center my-5">
+            <div id="show-all-container" class="hidden text-center my-5">
                 <button onclick="handleShowAll()" class="btn btn-accent">Show All Phones</button>
-             </div>
+            </div>
         </section>
+
+        <!-- show details modal -->
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="show_deatils_modal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <h3 class="text-lg font-bold">Hello!</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
     </main>
 
     <footer>
