@@ -31,7 +31,7 @@ const displayPhones = (phones, isShowAll) =>{
     }
 
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
         // 2. create a div
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card bg-slate-300 p-4 shadow-xl`;
@@ -63,11 +63,24 @@ const handleShowDetails = async(id)=>{
     // load individual data
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
+    const phone = data.data;
+
+    showPhoneDetails(phone);
 }
 
-const showPhoneDetails =() =>{
+const showPhoneDetails =(phone) =>{
+    console.log(phone);
+    const phoneName = document.getElementById('show-detail-phone-name');
+    phoneName.innerText = phone.name;
+
+    const showDetailContainer = document.getElementById('show-detail-container');
+    showDetailContainer.innerHTML = `
+        <div class="flex justify-center items-center my-5"> <img src="${phone.image}" alt="" /> </div>
+        <p><span>Storage:</span> ${phone.mainFeatures.storage}</p>
+    `
     // show the modal
+    show_deatils_modal.showModal();
 
 }
 
@@ -76,7 +89,7 @@ const handleSearch =(isShowAll)=>{
     toggleLoadingSpinner(true);
     const searchField = document.getElementById('serach-field');
     const searchText = searchField.value;
-    console.log(searchText);
+    // console.log(searchText);
     loadPhone(searchText, isShowAll);
 }
 
